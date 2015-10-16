@@ -2,14 +2,16 @@ import sys
 import urllib.request
 import json
 
+_defaultURL = "http://shopicruit.myshopify.com/products.json"
+
 if(len(sys.argv) != 2):
-    print("Improper usage. Store 'products.json' url argument required")
-    exit(1)
+    URL = _defaultURL
 else:
     print("Url given: {}".format(sys.argv[1]))
+    URL = sys.argv[1]
 
 try:
-    res = urllib.request.urlopen(sys.argv[1])
+    res = urllib.request.urlopen(URL)
     data = json.loads(res.readall().decode('utf-8'))
     print("Received data... Parsing for wallets and lamps")
 except BaseException as e:
