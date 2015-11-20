@@ -39,3 +39,4 @@ taxRate = 1.13
 cost = taxableCost*taxRate + nonTaxCost
 
 print("Buying {} variants of {} core products, you'd spend ${:.2f} including 13% tax".format(numBought, numProducts, cost, int((taxRate - 1)*100)))
+print("You would spend ${:.2f} not including taxes.".format(nonTaxCost + taxableCost))
